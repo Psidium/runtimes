@@ -11,6 +11,8 @@ local ruby = import "./stable/ruby/ruby.jsonnet";
 # Incubator
 local jvm = import "./incubator/jvm/jvm.jsonnet";
 local nodejs_distroless = import "./incubator/nodejs_distroless/nodejs_distroless.jsonnet";
+local nodejs_instrumentation = import "./incubator/nodejs_instrumentation/nodejs_instrumentation.jsonnet";
+local nodejs_with_heap = import "./incubator/nodejs_with_heap/nodejs_with_heap.jsonnet";
 local nodejs_ce = import "./incubator/nodejs_ce/nodejs_ce.jsonnet";
 local vertx = import "./incubator/vertx/vertx.jsonnet";
 
@@ -27,6 +29,8 @@ local vertx = import "./incubator/vertx/vertx.jsonnet";
   # Incubator
   jvm,
   nodejs_distroless,
+  nodejs_instrumentation,
+  nodejs_with_heap,
   nodejs_ce,
   vertx,
 ]

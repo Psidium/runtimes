@@ -1,0 +1,20 @@
+FROM bitnami/node:12 
+RUN apt-get update && apt-get install git
+
+ADD lib/helper.js /kubeless_rt/lib/
+ADD kubeless.js /kubeless_rt/
+ADD servelogs.js /kubeless_rt/
+ADD package.json /kubeless_rt/
+ADD runtime_entrypoint.sh /kubeless_rt/
+ADD kubeless-npm-install.sh /
+RUN chown 1000:1000 /kubeless_rt
+
+WORKDIR /kubeless_rt/
+
+RUN npm install
+
+USER 1000
+
+# https://docs.docker.com/engine/reference/builder/#shell-form-entrypoint-example
+# https://nodejs.org/es/docs/guides/simple-profiling/
+CMD [ "bash", "runtime_entrypoint.sh" ]
